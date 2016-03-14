@@ -13,6 +13,16 @@ app.get('/', function(req, res) {
         title: "test notification",
         description: "this is a notification",
         time: new Date().getTime()
+      },
+      {
+        title: "major notification",
+        description: "something is seriously wrong",
+        time: new Date().getTime()
+      },
+      {
+        title: "storage getting full",
+        description: "this cluster is running out of open storage",
+        time: new Date().getTime()
       }]
     });
 });
