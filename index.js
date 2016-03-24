@@ -7,24 +7,8 @@ var port = process.env.PORT || 8080;
 
 // set the home page route
 app.get('/', function(req, res) {
-    // ejs render automatically looks in the views folder
-    res.json({
-      notifications: [{
-        title: "test notification",
-        description: "this is a notification",
-        time: new Date().getTime()
-      },
-      {
-        title: "major notification",
-        description: "something is seriously wrong",
-        time: new Date().getTime()
-      },
-      {
-        title: "storage getting full",
-        description: "this cluster is running out of open storage",
-        time: new Date().getTime()
-      }]
-    });
+    res.set('Content-Type', 'text/xml');
+    res.send(require('fs').readFileSync('message.txt'));
 });
 
 app.listen(port, function() {
